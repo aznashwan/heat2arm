@@ -60,7 +60,7 @@ class BaseFloatingIPARMTranslator(BaseHeatARMTranslator):
             "name": "[variables('publicIPAddressName_%s')]" % self._name,
             "location": "[variables('location')]",
             "properties": {
-                # TODO: Add support for static IPs
+                # TODO: Add support for static IPs.
                 "publicIPAllocationMethod": "Dynamic",
                 "dnsSettings": {
                     "domainNameLabel":

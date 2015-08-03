@@ -72,7 +72,7 @@ class BaseSecurityGroupARMTranslator(BaseHeatARMTranslator):
             "apiVersion": constants.ARM_API_VERSION,
             "type": self.arm_resource_type,
             "name": ("[variables('secGroupName_%s')]" %
-                     self._heat_resource.name),
+                     self._name),
             "location": "[variables('location')]",
             "properties": {
                 "securityRules": self._get_rules()

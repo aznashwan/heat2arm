@@ -67,8 +67,8 @@ class EC2InstanceARMTranslator(BaseInstanceARMTranslator):
         super(EC2InstanceARMTranslator, self).update_context()
 
         res = self._context.get_resource({
-            "type": self.heat_resource_type,
-            "name": "[variables('vmName_%s')]" % self._heat_resource.name,
+            "type": self.arm_resource_type,
+            "name": "[variables('vmName_%s')]" % self._name,
         })
 
         # check for the existence of an availability zone and add a

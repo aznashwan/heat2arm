@@ -67,11 +67,11 @@ class BaseHeatARMTranslator(object):
         return []
 
     def get_resource_data(self):
-        """ get_resource_data returns a list of all the characteristics
-        representing the resource which can be directly serialized
-        into the resulting ARM template format.
+        """ get_resource_data returns a list of all the ARM resources
+        representing the resource's translation  which can be directly
+        serialized into the resulting ARM template format.
         """
-        return {}
+        return []
 
     def update_context(self):
         """ update_context applies any changes necessary for the completeness
@@ -89,6 +89,5 @@ class BaseHeatARMTranslator(object):
         """
         self._context.add_parameters(self.get_parameters())
         self._context.add_variables(self.get_variables())
-        res = self.get_resource_data()
-        if res:
+        for res in self.get_resource_data():
             self._context.add_resource(res)

@@ -185,7 +185,7 @@ class BaseInstanceARMTranslator(BaseHeatARMTranslator):
         return [{
             "apiVersion": constants.ARM_API_VERSION,
             "type": self.arm_resource_type,
-            "name": "[variables('vmName_%s')]" % self._heat_resource.name,
+            "name": "[variables('vmName_%s')]" % self._name,
             "location": "[variables('location')]",
             "properties": self._get_vm_properties(),
             "dependsOn": self.get_dependencies(),
@@ -206,7 +206,7 @@ class BaseInstanceARMTranslator(BaseHeatARMTranslator):
         })
 
         res = self._context.get_resource({
-            "name": "[variables('vmName_%s')]" % self._heat_resource.name,
+            "name": "[variables('vmName_%s')]" % self._name,
             "type": self.arm_resource_type
         })
 

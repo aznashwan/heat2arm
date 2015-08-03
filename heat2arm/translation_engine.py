@@ -31,6 +31,7 @@ from heat.tests import utils as test_utils
 
 from heat2arm import constants
 from heat2arm.context import Context
+from heat2arm.translators import autoscaling
 from heat2arm.translators import instances
 from heat2arm.translators import networking
 from heat2arm.translators import storage
@@ -67,6 +68,7 @@ CONF.register_opts([
 CTX = Context(CONF.default_azure_location)
 
 RESOURCE_TRANSLATORS = [
+    autoscaling.AWSAutoScalingGroupARMTranslator,
     instances.NovaServerARMTranslator,
     instances.EC2InstanceARMTranslator,
     networking.EC2SecurityGroupARMTranslator,
